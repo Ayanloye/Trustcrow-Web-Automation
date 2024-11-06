@@ -1,14 +1,14 @@
-name: Run Cypress Test
+name: Pipeline Runner
 
 on: [push]
-
 jobs:
-    cypress-runner:
-        runs-on: ubuntu-latest
+  cypress-runner:
 
-        steps:
-        - name: Intialize NPM
-          uses: actions/checkout@v4
+    runs-on: ubuntu-latest
 
-        - name: Run Cypress
-          uses: cypress-io/github-action@v6
+    steps:
+    - name: Pipeline Setup
+      uses: actions/checkout@v4
+
+    - name: Execute Cypress Test
+      uses: cypress-io/github-action@v6
